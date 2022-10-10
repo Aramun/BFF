@@ -1,24 +1,68 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended.Tiled;
+using MonoGame.Extended.Tiled.Renderers;
+using MonoGame.Extended.Collisions;
+using System.Collections.Generic;
+using MonoGame.Extended;
+using MonoGame.Extended.Sprites;
+using MonoGame.Extended.Serialization;
+using MonoGame.Extended.Content;
+using MonoGame.Extended.ViewportAdapters;
 
-namespace BFF
+namespace Prototype02
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        const int MapWidth = 2400;
+        const int MapHeight = 1200;
+
+        public static OrthographicCamera _camera;
+        public static Vector2 _cameraPosition;
+        public static Vector2 _bgPosition;
+
+        TiledMap _tileMap;
+        TiledMapRenderer _tiledMapRenderer;
+
+        private readonly List<IEntity> _entities = new List<IEntity>();
+        public readonly CollisionComponent _collisionComponent;
+
+        TiledMapObjectLayer _PlatformTiledObj;
+        TiledMapObjectLayer _FireObj;
+        TiledMapObjectLayer _Fire2Obj;
+        TiledMapObjectLayer _BrokenObj;
+        TiledMapObjectLayer _NpcObj;
+        TiledMapObjectLayer _GoalObj;
+        Texture2D Broken;
+
+        bool rescue;
+        public int rescuenum;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
+            //_graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
+            _collisionComponent = new CollisionComponent(new RectangleF(0, 0, MapWidth, MapHeight));
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            _graphics.PreferredBackBufferWidth = MapWidth  ;
+            _graphics.PreferredBackBufferHeight = MapHeight ;
+            _graphics.ApplyChanges();
+
+            var Viewportadapter = new BoxingViewportAdapter(Window, GraphicsDevice, MapWidth , MapHeight  );
+            _camera = new OrthographicCamera(Viewportadapter);
+            rescue = false;
+            _bgPosition = new Vector2(0, 0);
+
 
             base.Initialize();
         }
@@ -26,6 +70,84 @@ namespace BFF
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _tileMap = Content.Load<TiledMap>("Map_1");
+            _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, _tileMap);
+
+            foreach (TiledMapObjectLayer layer in _tileMap.ObjectLayers)
+            {
+              if (layer.Name == "Platform_Object")
+            {
+              _PlatformTiledObj = layer;
+            }
+            /*if (layer.Name == "Fire_Object")
+            {
+                _FireObj = layer;
+            }
+            if (layer.Name == "Fire_Object2")
+            {
+                _Fire2Obj = layer;
+            }
+            if (layer.Name == "Broken_Object")
+            {
+                _BrokenObj = layer;
+            }
+            if (layer.Name == "Npc_Object")
+            {
+                _NpcObj = layer;
+            }
+            if (layer.Name == "Goal_Object")
+            {
+                _GoalObj = layer;
+            }*/
+            }
+
+            foreach (TiledMapObject Obj in _PlatformTiledObj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X, Obj.Position.Y);
+                _entities.Add(new PlatformEntity(this, new RectangleF(position, Obj.Size)));
+            }
+
+            /*SpriteSheet fireSheet = Content.Load<SpriteSheet>("Resources/fire_Sprite.sf", new JsonContentLoader());
+            foreach (TiledMapObject Obj in _FireObj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width/2, Obj.Position.Y + Obj.Size.Width/2);
+                _entities.Add(new FireEntity(this, new CircleF(position, Obj.Size.Width/2), new AnimatedSprite(fireSheet)));
+            }
+            foreach (TiledMapObject Obj in _Fire2Obj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width / 2, Obj.Position.Y + Obj.Size.Width / 2);
+                _entities.Add(new FireEntity2(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(fireSheet)));
+            }
+
+            SpriteSheet npcSheet = Content.Load<SpriteSheet>("Resources/NPC_sprite.sf", new JsonContentLoader());
+            foreach (TiledMapObject Obj in _NpcObj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width, Obj.Position.Y + Obj.Size.Width);
+                _entities.Add(new NpcEntity(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(npcSheet)));
+            }
+
+            SpriteSheet goalSheet = Content.Load<SpriteSheet>("Resources/goal_sprite.sf", new JsonContentLoader());
+            foreach (TiledMapObject Obj in _GoalObj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width, Obj.Position.Y + Obj.Size.Width);
+                _entities.Add(new GoalEntity(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(goalSheet)));
+            }
+
+            Broken = Content.Load<Texture2D>("Resources/woodfix");
+            foreach(TiledMapObject Obj in _BrokenObj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width , Obj.Position.Y + Obj.Size.Width );
+                _entities.Add(new BrokenEntity(this, new CircleF(position, Obj.Size.Width), Broken));
+            }*/
+
+            
+            SpriteSheet playerSheet = Content.Load<SpriteSheet>("Resources/Sprite Sheet Char.sf", new JsonContentLoader());
+            _entities.Add(new PlayerEntity(this, new RectangleF(new Point2(0, 720), new Size2(240, 240)), new AnimatedSprite(playerSheet)));
+
+            foreach (IEntity entity in _entities)
+            {
+                _collisionComponent.Insert(entity);
+            }
 
             // TODO: use this.Content to load your game content here
         }
@@ -37,6 +159,65 @@ namespace BFF
 
             // TODO: Add your update logic here
 
+            foreach (IEntity entity in _entities)
+            {
+                /*if(entity is FireEntity)
+                {
+                    if (!((FireEntity)entity).IsExist())
+                    {
+                        //_collisionComponent.Remove(entity);
+                        //Exit();
+                    }
+                }
+
+                if (entity is FireEntity2)
+                {
+                    if (!((FireEntity2)entity).IsExist())
+                    {
+                        //_collisionComponent.Remove(entity);
+                        //Exit();
+                    }
+                }
+
+                if (entity is NpcEntity)
+                {
+                    if (((NpcEntity)entity).IsRescue())
+                    {
+                        //_collisionComponent.Remove(entity);
+                        _entities.Remove(entity);
+                        rescuenum += 1;
+                        break;
+                    }
+                    /*if (((NpcEntity)entity).AllRescue())
+                    {
+                        rescue = true;
+                    }*/
+                //}
+
+                /*if(entity is GoalEntity)
+                {
+                    if (((GoalEntity)entity).IsRescue() && rescuenum == 2)
+                    {
+                        Exit();
+                    }
+                }
+
+                
+
+                if (entity is BrokenEntity)
+                {
+                    if (!((BrokenEntity)entity).Past())
+                    {
+                        //((BrokenEntity)entity).Bounds.Position = ((BrokenEntity)entity).Oldpos;
+                        
+                    }
+                }*/
+                entity.Update(gameTime);
+            }
+
+            _collisionComponent.Update(gameTime);
+            _tiledMapRenderer.Update(gameTime);
+            _camera.LookAt(_bgPosition + _cameraPosition);
             base.Update(gameTime);
         }
 
@@ -46,7 +227,47 @@ namespace BFF
 
             // TODO: Add your drawing code here
 
+            var transformMatrix = _camera.GetViewMatrix();
+
+            _tiledMapRenderer.Draw();
+            _spriteBatch.Begin();
+            foreach (IEntity entity in _entities)
+            {
+                entity.Draw(_spriteBatch);
+            }
+            _spriteBatch.End();
+
             base.Draw(gameTime);
         }
-    }
+
+        public int GetMapWidth()
+        {
+            return MapWidth;
+        }
+        public int GetMapHeigh()
+        {
+            return MapHeight;
+        }
+
+        public void UpdateCamera(Vector2 Move)
+        {
+            _cameraPosition += Move;
+        }
+
+        public float GetCameraPositionX()
+        {
+            return _cameraPosition.X;
+        }
+
+        public float GetCameraPositionY()
+        {
+            return _cameraPosition.Y;
+        }
+
+        public void Setcam(Vector2 Cam)
+        {
+            _cameraPosition = Cam;
+            
+        }
+    }   
 }

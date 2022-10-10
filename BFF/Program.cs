@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BFF
+namespace Prototype02
 {
     public static class Program
     {
