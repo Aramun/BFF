@@ -62,6 +62,7 @@ namespace Prototype02
             _camera = new OrthographicCamera(Viewportadapter);
             rescue = false;
             _bgPosition = new Vector2(0, 0);
+            //Hello World
 
 
             base.Initialize();
@@ -148,6 +149,7 @@ namespace Prototype02
             {
                 _collisionComponent.Insert(entity);
             }
+
 
             // TODO: use this.Content to load your game content here
         }
