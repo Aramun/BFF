@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/ปอนด์/Source/Repos/BFF/BFF/Content/../../../../../Downloads/Prototype02_2/Prototype02/Prototype02/Prototype02/Content/background_fix.tsx</SourceFile>
+  <SourceTime>2022-10-09T22:52:34.1615923+07:00</SourceTime>
+  <DestFile>C:/Users/ปอนด์/Source/Repos/BFF/BFF/Content/bin/Windows/Content/../../../../../Downloads/Prototype02_2/Prototype02/Prototype02/Prototype02/Content/background_fix_0.xnb</DestFile>
+  <DestTime>2022-10-11T21:20:12.9248997+07:00</DestTime>
+  <Importer>TiledMapTilesetImporter</Importer>
+  <ImporterTime>2020-08-30T00:17:30+07:00</ImporterTime>
+  <Processor>TiledMapTilesetProcessor</Processor>
+  <ProcessorTime>2020-08-30T00:17:30+07:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset>
+    <string>C:/Users/ปอนด์/Source/Repos/BFF/BFF/Content/bin/Windows/Content/../../../../../Downloads/Prototype02_2/Prototype02/Prototype02/Prototype02/Content/Resources/background_fix_0.xnb</string>
+  </BuildAsset>
+  <BuildOutput />
+</PipelineBuildEvent>

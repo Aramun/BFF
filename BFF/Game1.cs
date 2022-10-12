@@ -18,8 +18,8 @@ namespace Prototype02
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        const int MapWidth = 2400;
-        const int MapHeight = 1200;
+        const int MapWidth = 8400;
+        const int MapHeight = 3600;
 
         public static OrthographicCamera _camera;
         public static Vector2 _cameraPosition;
@@ -32,14 +32,14 @@ namespace Prototype02
         public readonly CollisionComponent _collisionComponent;
 
         TiledMapObjectLayer _PlatformTiledObj;
-        TiledMapObjectLayer _FireObj;
+        /*TiledMapObjectLayer _FireObj;
         TiledMapObjectLayer _Fire2Obj;
         TiledMapObjectLayer _BrokenObj;
         TiledMapObjectLayer _NpcObj;
         TiledMapObjectLayer _GoalObj;
         Texture2D Broken;
 
-        bool rescue;
+        bool rescue;*/
         public int rescuenum;
 
         public Game1()
@@ -54,13 +54,13 @@ namespace Prototype02
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _graphics.PreferredBackBufferWidth = MapWidth  ;
-            _graphics.PreferredBackBufferHeight = MapHeight ;
+            _graphics.PreferredBackBufferWidth = 2400  ;
+            _graphics.PreferredBackBufferHeight = 1200 ;
             _graphics.ApplyChanges();
 
             var Viewportadapter = new BoxingViewportAdapter(Window, GraphicsDevice, MapWidth , MapHeight  );
             _camera = new OrthographicCamera(Viewportadapter);
-            rescue = false;
+            //rescue = false;
             _bgPosition = new Vector2(0, 0);
 
 
@@ -70,7 +70,7 @@ namespace Prototype02
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _tileMap = Content.Load<TiledMap>("Map_1");
+            _tileMap = Content.Load<TiledMap>("Map_4");
             _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, _tileMap);
 
             foreach (TiledMapObjectLayer layer in _tileMap.ObjectLayers)
@@ -79,6 +79,7 @@ namespace Prototype02
             {
               _PlatformTiledObj = layer;
             }
+            
             /*if (layer.Name == "Fire_Object")
             {
                 _FireObj = layer;
@@ -142,7 +143,7 @@ namespace Prototype02
 
             
             SpriteSheet playerSheet = Content.Load<SpriteSheet>("Resources/Sprite Sheet Char.sf", new JsonContentLoader());
-            _entities.Add(new PlayerEntity(this, new RectangleF(new Point2(0, 720), new Size2(240, 240)), new AnimatedSprite(playerSheet)));
+            _entities.Add(new PlayerEntity(this, new RectangleF(new Vector2(0,0), new Size2(240, 240)), new AnimatedSprite(playerSheet)));
 
             foreach (IEntity entity in _entities)
             {
@@ -158,7 +159,7 @@ namespace Prototype02
                 Exit();
 
             // TODO: Add your update logic here
-
+            Vector2 temp_player_pos = Vector2.Zero;
             foreach (IEntity entity in _entities)
             {
                 /*if(entity is FireEntity)
@@ -212,12 +213,22 @@ namespace Prototype02
                         
                     }
                 }*/
+
+                if (entity is PlayerEntity)
+                {
+                    float tempX = ((PlayerEntity)entity).Bounds.Position.X;
+                    float tempY = ((PlayerEntity)entity).Bounds.Position.Y;
+                    temp_player_pos = new Vector2(tempX, tempY);
+                    //((BrokenEntity)entity).Bounds.Position = ((BrokenEntity)entity).Oldpos;
+
+
+                }
                 entity.Update(gameTime);
             }
 
             _collisionComponent.Update(gameTime);
             _tiledMapRenderer.Update(gameTime);
-            _camera.LookAt(_bgPosition + _cameraPosition);
+            _camera.LookAt(temp_player_pos + _cameraPosition);
             base.Update(gameTime);
         }
 
@@ -229,8 +240,8 @@ namespace Prototype02
 
             var transformMatrix = _camera.GetViewMatrix();
 
-            _tiledMapRenderer.Draw();
-            _spriteBatch.Begin();
+            _tiledMapRenderer.Draw(transformMatrix);
+            _spriteBatch.Begin(transformMatrix:transformMatrix);
             foreach (IEntity entity in _entities)
             {
                 entity.Draw(_spriteBatch);

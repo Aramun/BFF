@@ -51,8 +51,8 @@ namespace Prototype02
             if (_currentkey.IsKeyDown(Keys.D) && Bounds.Position.X < _game.GetMapWidth() - ((RectangleF)Bounds).Width)
             {
                 move = new Vector2(Velocity, 0) * gameTime.GetElapsedSeconds() * 50;
-                if(Bounds.Position.X - _game.GetCameraPositionX() >= 200
-                    && _game.GetCameraPositionX() < _game.GetMapWidth() - (_game.GetMapWidth() ))
+                if(Bounds.Position.X - _game.GetCameraPositionX() >= 240
+                    && _game.GetCameraPositionX() < _game.GetMapWidth() - (_game.GetMapWidth()/3))
                 {
                     _game.UpdateCamera(move);
                 }
@@ -68,7 +68,7 @@ namespace Prototype02
             else if (_currentkey.IsKeyDown(Keys.A) && Bounds.Position.X > 0)
             {
                 move = new Vector2(-Velocity, 0) * gameTime.GetElapsedSeconds() * 50;
-                if(Bounds.Position.X - _game.GetCameraPositionX() <= 200
+                if(Bounds.Position.X - _game.GetCameraPositionX() <= 240
                     && _game.GetCameraPositionX() > 0)
                 {
                     _game.UpdateCamera(move);
@@ -92,7 +92,9 @@ namespace Prototype02
                 isJumping = true;
                 isGrounded = false;
                 jump = new Vector2(0, -jumpSpeed) * gameTime.GetElapsedSeconds() * 50;
-                if (Bounds.Position.Y - _game.GetCameraPositionY() <= 120)
+                if (Bounds.Position.Y - _game.GetCameraPositionY() <= 240
+                
+                    && _game.GetCameraPositionY() < _game.GetMapHeigh() - (_game.GetMapHeigh() / 3))
                     
                 {
                     _game.UpdateCamera(jump);
@@ -103,12 +105,12 @@ namespace Prototype02
             if (isJumping)
             {
                 animation = "jump";
-                jumpSpeed = -30;
+                jumpSpeed = -20;
                 force -= gameTime.GetElapsedSeconds() * 32;
             }
             else
             {
-                jumpSpeed = 30;
+                jumpSpeed = 20;
                 if (!isGrounded)
                 {
                     animation = "land";
@@ -136,7 +138,7 @@ namespace Prototype02
                     if (((RectangleF)Bounds).Top < ((RectangleF)CollisionInfo.Other.Bounds).Top && ((RectangleF)Bounds).Bottom < ((RectangleF)CollisionInfo.Other.Bounds).Bottom)
                     {
                         isGrounded = true;
-                        force = 10;
+                        force = 20;
                     }
                 }
                 Bounds.Position -= CollisionInfo.PenetrationVector;

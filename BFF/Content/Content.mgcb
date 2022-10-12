@@ -29,6 +29,21 @@
 /processor:TiledMapProcessor
 /build:Map_1.tmx
 
+#begin Map_2.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Map_2.tmx
+
+#begin Map_3.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Map_3.tmx
+
+#begin Map_4.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Map_4.tmx
+
 #begin platform fix.tsx
 /importer:TiledMapTilesetImporter
 /processor:TiledMapTilesetProcessor
