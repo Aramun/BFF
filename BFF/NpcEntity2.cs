@@ -8,38 +8,47 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Extended.Collisions;
 using MonoGame.Extended.Sprites;
+using Prototype02;
 
-namespace Prototype02
+namespace BFF
 {
-    public class GoalEntity:IEntity
+   public class NpcEntity2: IEntity
     {
         private readonly Game1 _game;
         public IShapeF Bounds { get; }
-        private AnimatedSprite _GoalSprite;
+        private AnimatedSprite _NpcSprite;
         string animation;
-        private bool isRescue = false;
-        bool hit;
-        
+        private bool isRescue;
+        int Rescue;
+        bool allRescue;
 
-        public GoalEntity(Game1 game, RectangleF rectangleF, AnimatedSprite Npcsprite)
+        public NpcEntity2(Game1 game, RectangleF rectangleF, AnimatedSprite Npcsprite)
         {
             _game = game;
             Bounds = rectangleF;
-            animation = "goal1";
-            _GoalSprite = Npcsprite;
+            animation = "npc2";
+            _NpcSprite = Npcsprite;
             isRescue = false;
+            allRescue = false;
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            _GoalSprite.Play(animation);
-            _GoalSprite.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            _NpcSprite.Play(animation);
+            _NpcSprite.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            if (Rescue == 1)
+            {
+                allRescue = true;
+            }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
-        {          
+        {
+            if (isRescue == false)
+            {
                 spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
-                spriteBatch.Draw(_GoalSprite, Bounds.Position);
+                spriteBatch.Draw(_NpcSprite, Bounds.Position);
+            }
 
         }
 
@@ -47,9 +56,11 @@ namespace Prototype02
         {
             if (!isRescue)
             {
-                if (CollisionInfo.Other.ToString().Contains("PlayerEntity") && _game.rescuenum == 2)
+                if (CollisionInfo.Other.ToString().Contains("PlayerEntity"))
                 {
                     isRescue = true;
+                    Rescue += 1;
+
                 }
             }
         }
@@ -57,6 +68,11 @@ namespace Prototype02
         public bool IsRescue()
         {
             return isRescue;
+        }
+
+        public bool AllRescue()
+        {
+            return allRescue;
         }
     }
 }

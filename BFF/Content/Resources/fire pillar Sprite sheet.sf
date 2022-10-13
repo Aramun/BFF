@@ -1,0 +1,12 @@
+{
+  "textureAtlas": {
+    "texture": "fire pillar Sprite sheet.png",
+    "regionWidth": 240,
+    "regionHeight": 480
+  },
+  "cycles": {
+    "fire4": {
+      "frames": [0,1]
+    }
+  }
+}

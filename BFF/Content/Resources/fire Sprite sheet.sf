@@ -1,0 +1,15 @@
+{
+  "textureAtlas": {
+    "texture": "fire Sprite sheet.png",
+    "regionWidth": 240,
+    "regionHeight": 240
+  },
+  "cycles": {
+    "fire1": {
+      "frames": [ 0, 1, 2, 3 ]
+    },
+    "fire2": {
+      "frames": [ 8, 9, 10, 11 ]
+    }
+  }
+}

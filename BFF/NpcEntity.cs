@@ -11,9 +11,9 @@ using MonoGame.Extended.Sprites;
 
 namespace Prototype02
 {
-    public class NpcEntity
+    public class NpcEntity:IEntity
     {
-        /*private readonly Game1 _game;
+        private readonly Game1 _game;
         public IShapeF Bounds { get; }
         private AnimatedSprite _NpcSprite;
         string animation;
@@ -45,7 +45,7 @@ namespace Prototype02
         {
             if (isRescue == false)
             {
-                //spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
+                spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
                 spriteBatch.Draw(_NpcSprite, Bounds.Position);
             }
 
@@ -72,6 +72,6 @@ namespace Prototype02
         public bool AllRescue()
         {
             return allRescue;
-        }*/
+        }
     }
 }

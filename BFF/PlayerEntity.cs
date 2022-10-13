@@ -124,7 +124,7 @@ namespace Prototype02
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.DrawRectangle((RectangleF)Bounds, Color.Red, 3f);
+            spriteBatch.DrawRectangle((RectangleF)Bounds, Color.Red, 3f);
             spriteBatch.Draw(_PlayrSprite, ((RectangleF)Bounds).Center);
 
         }
@@ -143,6 +143,38 @@ namespace Prototype02
                 }
                 Bounds.Position -= CollisionInfo.PenetrationVector;
             }
+            if (CollisionInfo.Other.ToString().Contains("FireEntity"))
+            {
+                //Bounds.Position = Vector2.Zero;
+                //_game.UpdateCamera(Vector2.Zero);
+                //_game.Setcam(Vector2.Zero);
+                isHit = false;
+                //_game.GetMapWidth();
+            }
+            if (CollisionInfo.Other.ToString().Contains("FireEntity2"))
+            {
+                //Bounds.Position = Vector2.Zero;
+                //_game.UpdateCamera(Vector2.Zero);
+                //_game.Setcam(Vector2.Zero);
+
+                isHit = false;
+            }
+            if (CollisionInfo.Other.ToString().Contains("FireEntity3"))
+            {
+                //Bounds.Position = Vector2.Zero;
+                //_game.UpdateCamera(Vector2.Zero);
+                //_game.Setcam(Vector2.Zero);
+
+                isHit = false;
+            }
+            if (CollisionInfo.Other.ToString().Contains("FireEntity4"))
+            {
+                //Bounds.Position = Vector2.Zero;
+                //_game.UpdateCamera(Vector2.Zero);
+                //_game.Setcam(Vector2.Zero);
+
+                isHit = false;
+            }
 
             /*if (CollisionInfo.Other.ToString().Contains("BrokenEntity"))
             {
@@ -150,23 +182,9 @@ namespace Prototype02
                 _game.UpdateCamera(Vector2.Zero);
                 _game.Setcam(Vector2.Zero);
                 isHit = false;
-            }
-            if (CollisionInfo.Other.ToString().Contains("FireEntity"))
-            {
-                Bounds.Position = Vector2.Zero;
-                _game.UpdateCamera(Vector2.Zero);
-                _game.Setcam(Vector2.Zero);
-                isHit = false;
-                _game.GetMapWidth();
-            }
-            if (CollisionInfo.Other.ToString().Contains("FireEntity2"))
-            {
-                Bounds.Position = Vector2.Zero;
-                _game.UpdateCamera(Vector2.Zero);
-                _game.Setcam(Vector2.Zero);
-
-                isHit = false;
             }*/
+
+
         }
 
         public bool IsHit()

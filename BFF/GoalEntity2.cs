@@ -8,10 +8,11 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Extended.Collisions;
 using MonoGame.Extended.Sprites;
+using Prototype02;
 
-namespace Prototype02
+namespace BFF
 {
-    public class GoalEntity:IEntity
+    class GoalEntity2: IEntity
     {
         private readonly Game1 _game;
         public IShapeF Bounds { get; }
@@ -19,13 +20,13 @@ namespace Prototype02
         string animation;
         private bool isRescue = false;
         bool hit;
-        
 
-        public GoalEntity(Game1 game, RectangleF rectangleF, AnimatedSprite Npcsprite)
+
+        public GoalEntity2(Game1 game, RectangleF rectangleF, AnimatedSprite Npcsprite)
         {
             _game = game;
             Bounds = rectangleF;
-            animation = "goal1";
+            animation = "goal2";
             _GoalSprite = Npcsprite;
             isRescue = false;
         }
@@ -37,9 +38,9 @@ namespace Prototype02
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
-        {          
-                spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
-                spriteBatch.Draw(_GoalSprite, Bounds.Position);
+        {
+            spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
+            spriteBatch.Draw(_GoalSprite, Bounds.Position);
 
         }
 

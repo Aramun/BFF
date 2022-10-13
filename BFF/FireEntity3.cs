@@ -8,10 +8,11 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Extended.Collisions;
 using MonoGame.Extended.Sprites;
+using Prototype02;
 
-namespace Prototype02
+namespace BFF
 {
-    public class FireEntity:IEntity
+    public class FireEntity3: IEntity
     {
         private readonly Game1 _game;
         public IShapeF Bounds { get; }
@@ -19,12 +20,12 @@ namespace Prototype02
         private AnimatedSprite _FireSprite;
         string animation;
 
-        public FireEntity(Game1 game, CircleF circleF, AnimatedSprite fireSprite)
+        public FireEntity3(Game1 game, CircleF circleF, AnimatedSprite fireSprite)
         {
             _game = game;
             Bounds = circleF;
 
-            animation = "fire1";
+            animation = "fire3";
             fireSprite.Play(animation);
             _FireSprite = fireSprite;
             isExist = true;
@@ -38,10 +39,10 @@ namespace Prototype02
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            
-                spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
-                spriteBatch.Draw(_FireSprite, Bounds.Position);
-            
+
+            spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
+            spriteBatch.Draw(_FireSprite, Bounds.Position);
+
         }
 
         public void OnCollision(CollisionEventArgs collisionInfo)
@@ -51,7 +52,7 @@ namespace Prototype02
                 if (collisionInfo.Other.ToString().Contains("PlayerEntity"))
                 {
                     isExist = false;
-                    
+
                 }
             }
         }
@@ -62,3 +63,4 @@ namespace Prototype02
         }
     }
 }
+

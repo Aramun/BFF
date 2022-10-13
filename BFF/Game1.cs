@@ -10,6 +10,7 @@ using MonoGame.Extended.Sprites;
 using MonoGame.Extended.Serialization;
 using MonoGame.Extended.Content;
 using MonoGame.Extended.ViewportAdapters;
+using BFF;
 
 namespace Prototype02
 {
@@ -32,11 +33,15 @@ namespace Prototype02
         public readonly CollisionComponent _collisionComponent;
 
         TiledMapObjectLayer _PlatformTiledObj;
-        /*TiledMapObjectLayer _FireObj;
+        TiledMapObjectLayer _FireObj;
         TiledMapObjectLayer _Fire2Obj;
-        TiledMapObjectLayer _BrokenObj;
+        TiledMapObjectLayer _Fire3Obj;
+        TiledMapObjectLayer _Fire4Obj;
         TiledMapObjectLayer _NpcObj;
+        TiledMapObjectLayer _Npc2Obj;
         TiledMapObjectLayer _GoalObj;
+        TiledMapObjectLayer _Goal2Obj;
+        /*TiledMapObjectLayer _BrokenObj;
         Texture2D Broken;
 
         bool rescue;*/
@@ -81,7 +86,7 @@ namespace Prototype02
               _PlatformTiledObj = layer;
             }
             
-            /*if (layer.Name == "Fire_Object")
+            if (layer.Name == "Fire_Object")
             {
                 _FireObj = layer;
             }
@@ -89,18 +94,39 @@ namespace Prototype02
             {
                 _Fire2Obj = layer;
             }
-            if (layer.Name == "Broken_Object")
+            if (layer.Name == "Fire_Object3")
             {
-                _BrokenObj = layer;
+                    _Fire3Obj = layer;
             }
-            if (layer.Name == "Npc_Object")
+             if (layer.Name == "Fire_Object3")
             {
-                _NpcObj = layer;
+                    _Fire3Obj = layer;
             }
-            if (layer.Name == "Goal_Object")
+            if (layer.Name == "Fire_Object4")
             {
-                _GoalObj = layer;
-            }*/
+                    _Fire4Obj = layer;
+            }
+                if (layer.Name == "Npc_Object")
+            {
+                    _NpcObj = layer;
+            }
+            if (layer.Name == "Npc_Object2")
+            {
+                  _Npc2Obj = layer;
+            }
+                /*if (layer.Name == "Broken_Object")
+                {
+                    _BrokenObj = layer;
+                }*/
+              
+                if (layer.Name == "Goal_Object")
+                {
+                    _GoalObj = layer;
+                }
+                if (layer.Name == "Goal_Object2")
+                {
+                    _Goal2Obj = layer;
+                }
             }
 
             foreach (TiledMapObject Obj in _PlatformTiledObj.Objects)
@@ -109,7 +135,7 @@ namespace Prototype02
                 _entities.Add(new PlatformEntity(this, new RectangleF(position, Obj.Size)));
             }
 
-            /*SpriteSheet fireSheet = Content.Load<SpriteSheet>("Resources/fire_Sprite.sf", new JsonContentLoader());
+            SpriteSheet fireSheet = Content.Load<SpriteSheet>("Resources/fire Sprite sheet.sf", new JsonContentLoader());
             foreach (TiledMapObject Obj in _FireObj.Objects)
             {
                 Point2 position = new Point2(Obj.Position.X + Obj.Size.Width/2, Obj.Position.Y + Obj.Size.Width/2);
@@ -120,29 +146,51 @@ namespace Prototype02
                 Point2 position = new Point2(Obj.Position.X + Obj.Size.Width / 2, Obj.Position.Y + Obj.Size.Width / 2);
                 _entities.Add(new FireEntity2(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(fireSheet)));
             }
+            SpriteSheet fireSheet3 = Content.Load<SpriteSheet>("Resources/fire Sprite sheet fire 3.sf", new JsonContentLoader());
+            foreach (TiledMapObject Obj in _Fire3Obj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width / 2, Obj.Position.Y + Obj.Size.Width / 2);
+                _entities.Add(new FireEntity3(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(fireSheet3)));
+            }
+            SpriteSheet fireSheet4 = Content.Load<SpriteSheet>("Resources/fire pillar Sprite sheet.sf", new JsonContentLoader());
+            foreach (TiledMapObject Obj in _Fire4Obj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width / 2, Obj.Position.Y + Obj.Size.Width / 2);
+                _entities.Add(new FireEntity4(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(fireSheet4)));
+            }
 
-            SpriteSheet npcSheet = Content.Load<SpriteSheet>("Resources/NPC_sprite.sf", new JsonContentLoader());
+            SpriteSheet npcSheet = Content.Load<SpriteSheet>("Resources/NPC sprite sheet.sf", new JsonContentLoader());
             foreach (TiledMapObject Obj in _NpcObj.Objects)
             {
                 Point2 position = new Point2(Obj.Position.X + Obj.Size.Width, Obj.Position.Y + Obj.Size.Width);
                 _entities.Add(new NpcEntity(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(npcSheet)));
             }
+            foreach (TiledMapObject Obj in _Npc2Obj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width, Obj.Position.Y + Obj.Size.Width);
+                _entities.Add(new NpcEntity2(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(npcSheet)));
+            }
 
-            SpriteSheet goalSheet = Content.Load<SpriteSheet>("Resources/goal_sprite.sf", new JsonContentLoader());
+            SpriteSheet goalSheet = Content.Load<SpriteSheet>("Resources/goal sprite sheet.sf", new JsonContentLoader());
             foreach (TiledMapObject Obj in _GoalObj.Objects)
             {
                 Point2 position = new Point2(Obj.Position.X + Obj.Size.Width, Obj.Position.Y + Obj.Size.Width);
                 _entities.Add(new GoalEntity(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(goalSheet)));
             }
+            foreach (TiledMapObject Obj in _Goal2Obj.Objects)
+            {
+                Point2 position = new Point2(Obj.Position.X + Obj.Size.Width, Obj.Position.Y + Obj.Size.Width);
+                _entities.Add(new GoalEntity2(this, new CircleF(position, Obj.Size.Width / 2), new AnimatedSprite(goalSheet)));
+            }
 
-            Broken = Content.Load<Texture2D>("Resources/woodfix");
+            /*Broken = Content.Load<Texture2D>("Resources/woodfix");
             foreach(TiledMapObject Obj in _BrokenObj.Objects)
             {
                 Point2 position = new Point2(Obj.Position.X + Obj.Size.Width , Obj.Position.Y + Obj.Size.Width );
                 _entities.Add(new BrokenEntity(this, new CircleF(position, Obj.Size.Width), Broken));
             }*/
 
-            
+
             SpriteSheet playerSheet = Content.Load<SpriteSheet>("Resources/Sprite Sheet Char.sf", new JsonContentLoader());
             _entities.Add(new PlayerEntity(this, new RectangleF(new Vector2(0,0), new Size2(240, 240)), new AnimatedSprite(playerSheet)));
 
@@ -164,7 +212,7 @@ namespace Prototype02
             Vector2 temp_player_pos = Vector2.Zero;
             foreach (IEntity entity in _entities)
             {
-                /*if(entity is FireEntity)
+                if(entity is FireEntity)
                 {
                     if (!((FireEntity)entity).IsExist())
                     {
@@ -172,7 +220,7 @@ namespace Prototype02
                         //Exit();
                     }
                 }
-
+                
                 if (entity is FireEntity2)
                 {
                     if (!((FireEntity2)entity).IsExist())
@@ -181,8 +229,22 @@ namespace Prototype02
                         //Exit();
                     }
                 }
+                if(entity is GoalEntity)
+             {
+                 if (((GoalEntity)entity).IsRescue() && rescuenum == 2)
+                 {
+                     Exit();
+                 }
+             }
+                if (entity is GoalEntity2)
+            {
+                    if (((GoalEntity2)entity).IsRescue() && rescuenum == 2)
+                 {
+                        Exit();
+                 }
+            }
 
-                if (entity is NpcEntity)
+                /*if (entity is NpcEntity)
                 {
                     if (((NpcEntity)entity).IsRescue())
                     {
@@ -197,17 +259,11 @@ namespace Prototype02
                     }*/
                 //}
 
-                /*if(entity is GoalEntity)
-                {
-                    if (((GoalEntity)entity).IsRescue() && rescuenum == 2)
-                    {
-                        Exit();
-                    }
-                }
 
-                
 
-                if (entity is BrokenEntity)
+
+
+                /*if (entity is BrokenEntity)
                 {
                     if (!((BrokenEntity)entity).Past())
                     {
@@ -236,7 +292,7 @@ namespace Prototype02
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 

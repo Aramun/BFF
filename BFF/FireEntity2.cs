@@ -10,9 +10,9 @@ using MonoGame.Extended.Collisions;
 using MonoGame.Extended.Sprites;
 namespace Prototype02
 {
-    public class FireEntity2 
+    public class FireEntity2:IEntity
     {
-        /*private readonly Game1 _game;
+        private readonly Game1 _game;
         public IShapeF Bounds { get; }
         private bool isExist;
         private AnimatedSprite _FireSprite;
@@ -38,7 +38,7 @@ namespace Prototype02
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             
-                //spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
+                spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
                 spriteBatch.Draw(_FireSprite, Bounds.Position);
             
         }
@@ -58,6 +58,6 @@ namespace Prototype02
         public bool IsExist()
         {
             return isExist;
-        }*/
+        }
     }
 }
