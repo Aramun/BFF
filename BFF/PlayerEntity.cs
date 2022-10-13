@@ -51,11 +51,11 @@ namespace Prototype02
             if (_currentkey.IsKeyDown(Keys.D) && Bounds.Position.X < _game.GetMapWidth() - ((RectangleF)Bounds).Width)
             {
                 move = new Vector2(Velocity, 0) * gameTime.GetElapsedSeconds() * 50;
-                if(Bounds.Position.X - _game.GetCameraPositionX() >= 240
+               /* if(Bounds.Position.X - _game.GetCameraPositionX() >= 240
                     && _game.GetCameraPositionX() < _game.GetMapWidth() - (_game.GetMapWidth()/3))
                 {
                     _game.UpdateCamera(move);
-                }
+                }*/
                 Bounds.Position += move;
 
                 if (isGrounded)
@@ -68,11 +68,11 @@ namespace Prototype02
             else if (_currentkey.IsKeyDown(Keys.A) && Bounds.Position.X > 0)
             {
                 move = new Vector2(-Velocity, 0) * gameTime.GetElapsedSeconds() * 50;
-                if(Bounds.Position.X - _game.GetCameraPositionX() <= 240
+              /*  if(Bounds.Position.X - _game.GetCameraPositionX() <= 240
                     && _game.GetCameraPositionX() > 0)
                 {
                     _game.UpdateCamera(move);
-                }
+                }*/
                 Bounds.Position += move;
 
                 if (isGrounded)

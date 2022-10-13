@@ -58,7 +58,7 @@ namespace Prototype02
             _graphics.PreferredBackBufferHeight = 1200 ;
             _graphics.ApplyChanges();
 
-            var Viewportadapter = new BoxingViewportAdapter(Window, GraphicsDevice, MapWidth , MapHeight  );
+            var Viewportadapter = new BoxingViewportAdapter(Window, GraphicsDevice, MapWidth/3, MapHeight/3  );
             _camera = new OrthographicCamera(Viewportadapter);
             //rescue = false;
             _bgPosition = new Vector2(0, 0);
