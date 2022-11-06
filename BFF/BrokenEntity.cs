@@ -8,65 +8,101 @@ using System;
 
 namespace Prototype02
 {
-    public class BrokenEntity 
+    public class BrokenEntity : IEntity
     {
-        /*private readonly Game1 _game;
+        private readonly Game1 _game;
         public int Velocity = 4;
         public IShapeF Bounds { get; }
         public Vector2 Oldpos;
         public int jumpSpeed;
-
-        private Texture2D _BrokenSprite;
+        public Vector2 Endpos;
+        private AnimatedSprite _BrokenSprite;
         private bool past;
+        string animation;
         Random r;
-        public BrokenEntity(Game1 game, IShapeF circleF, Texture2D BrokenSprite)
+        bool Hitplatform = false;
+
+        public bool ISTRAP = false;
+
+        public BrokenEntity(Game1 game, IShapeF circleF, AnimatedSprite BrokenSprite)
         {
             _game = game;
             Bounds = circleF;
             Oldpos = Bounds.Position;
+            animation = "wood";
+            BrokenSprite.Play(animation);
             _BrokenSprite = BrokenSprite;
+            Endpos = Bounds.Position;
+            
             Random r = new Random();
             for(int i = 0; i<4; i++)
             {
-                jumpSpeed = r.Next(1,3);
+                jumpSpeed = r.Next(20,25);
             }
             past = true;
         }
 
-        /*public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
-            
+            if(ISTRAP == true)
+            {
                 Bounds.Position += new Vector2(0, jumpSpeed);
-        
-            if (Bounds.Position.Y > 480)
+                _BrokenSprite.Play(animation);
+                _BrokenSprite.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            }
+            
+
+            if (Hitplatform == true || ISTRAP == false)
             {
                 //past = true;
                 Bounds.Position = Oldpos;
+                Hitplatform = false;
+                
             }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
-            spriteBatch.Draw(_BrokenSprite, Bounds.Position, Color.White);
+            //spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
+
+            if (ISTRAP == true)
+            {
+                spriteBatch.Draw(_BrokenSprite, Bounds.Position);
+                
+            }
         }
 
         public void OnCollision(CollisionEventArgs CollisionInfo)
         {
-            if (past)
+
+            if (CollisionInfo.Other.ToString().Contains("PlayerEntity"))
             {
-                if (CollisionInfo.Other.ToString().Contains("PlayerEntity"))
+                ISTRAP = false;
+
+            }
+
+            if (CollisionInfo.Other.ToString().Contains("PlatformEntity"))
                 {
-                    past = false;
+                    Hitplatform = true;
 
                 }
-            }
+                if (CollisionInfo.Other.ToString().Contains("PlatformEntityTrap"))
+                {
+                    Hitplatform = true;
+
+                }
+            
         }
 
         public bool Past()
         {
             return past;
-        }*/
+        }
+
+        public bool Trap()
+        {
+            return ISTRAP;
+        }
     }
 }
 

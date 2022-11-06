@@ -39,7 +39,7 @@ namespace Prototype02
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             
-                spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
+               // spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
                 spriteBatch.Draw(_FireSprite, Bounds.Position);
             
         }

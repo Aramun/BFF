@@ -10,7 +10,7 @@ using MonoGame.Extended.Collisions;
 using MonoGame.Extended.Sprites;
 using Prototype02;
 
-namespace BFF
+namespace FireRescue
 {
     class GoalEntity2: IEntity
     {
@@ -22,10 +22,10 @@ namespace BFF
         bool hit;
 
 
-        public GoalEntity2(Game1 game, RectangleF rectangleF, AnimatedSprite Npcsprite)
+        public GoalEntity2(Game1 game, CircleF circleF, AnimatedSprite Npcsprite)
         {
             _game = game;
-            Bounds = rectangleF;
+            Bounds = circleF;
             animation = "goal2";
             _GoalSprite = Npcsprite;
             isRescue = false;
@@ -39,7 +39,7 @@ namespace BFF
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
+            //spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
             spriteBatch.Draw(_GoalSprite, Bounds.Position);
 
         }
@@ -48,7 +48,7 @@ namespace BFF
         {
             if (!isRescue)
             {
-                if (CollisionInfo.Other.ToString().Contains("PlayerEntity") && _game.rescuenum == 2)
+                if (CollisionInfo.Other.ToString().Contains("PlayerEntity") && _game.rescuenum >= 2)
                 {
                     isRescue = true;
                 }

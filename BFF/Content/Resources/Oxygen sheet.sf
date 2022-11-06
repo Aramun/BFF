@@ -1,0 +1,33 @@
+{
+  "textureAtlas": {
+    "texture": "Oxygen sheet.png",
+    "regionWidth": 720,
+    "regionHeight": 240
+  },
+  "cycles": {
+    "animation0": {
+      "frames": [0]
+    },
+    "animation1": {
+      "frames": [1]
+    },
+    "animation2": {
+      "frames": [2]
+    },
+    "animation3": {
+      "frames": [3]
+    },
+    "animation4": {
+      "frames": [4]
+    },
+    "animation5": {
+      "frames": [5]
+    },
+    "animation6": {
+      "frames": [6]
+    },
+    "animation7": {
+      "frames": [7]
+    }
+  }
+}

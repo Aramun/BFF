@@ -27,7 +27,7 @@ namespace Prototype02
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawRectangle((RectangleF)Bounds, Color.Red, 3);
+           // spriteBatch.DrawRectangle((RectangleF)Bounds, Color.Red, 3);
 
         }
 

@@ -1,0 +1,21 @@
+{
+  "textureAtlas": {
+    "texture": "health status sheet.png",
+    "regionWidth": 120,
+    "regionHeight": 120
+  },
+  "cycles": {
+    "HP0": {
+      "frames": [ 0 ]
+    },
+    "HP1": {
+      "frames": [ 1 ]
+    },
+    "HP2": {
+      "frames": [ 2 ]
+    },
+    "HP3": {
+      "frames": [ 3 ]
+    }
+  }
+}

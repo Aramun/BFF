@@ -1,0 +1,15 @@
+{
+  "textureAtlas": {
+    "texture": "Item Sheet.png",
+    "regionWidth": 240,
+    "regionHeight": 240
+  },
+  "cycles": {
+    "aex": {
+      "frames": [0,1,2,3]
+    },
+    "extinguisher": {
+      "frames": [4,5,6,7]
+    }
+  }
+}

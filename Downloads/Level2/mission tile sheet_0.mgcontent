@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/ปอนด์/Source/Repos/BFF/BFF/Content/../../../../../Downloads/Level2/mission tile sheet.tsx</SourceFile>
+  <SourceTime>2022-10-31T20:16:38.0119456+07:00</SourceTime>
+  <DestFile>C:/Users/ปอนด์/Source/Repos/BFF/BFF/Content/bin/Windows/Content/../../../../../Downloads/Level2/mission tile sheet_0.xnb</DestFile>
+  <DestTime>2022-11-02T00:36:27.2203451+07:00</DestTime>
+  <Importer>TiledMapTilesetImporter</Importer>
+  <ImporterTime>2020-08-30T00:17:30+07:00</ImporterTime>
+  <Processor>TiledMapTilesetProcessor</Processor>
+  <ProcessorTime>2020-08-30T00:17:30+07:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset>
+    <string>C:/Users/ปอนด์/Source/Repos/BFF/BFF/Content/bin/Windows/Content/../../../../../Downloads/Level2/mission tile sheet_1.xnb</string>
+  </BuildAsset>
+  <BuildOutput />
+</PipelineBuildEvent>

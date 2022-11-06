@@ -21,10 +21,10 @@ namespace Prototype02
         bool hit;
         
 
-        public GoalEntity(Game1 game, RectangleF rectangleF, AnimatedSprite Npcsprite)
+        public GoalEntity(Game1 game, CircleF circleF, AnimatedSprite Npcsprite)
         {
             _game = game;
-            Bounds = rectangleF;
+            Bounds = circleF;
             animation = "goal1";
             _GoalSprite = Npcsprite;
             isRescue = false;
@@ -37,9 +37,9 @@ namespace Prototype02
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
-        {          
-                spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
-                spriteBatch.Draw(_GoalSprite, Bounds.Position);
+        {
+           // spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
+            spriteBatch.Draw(_GoalSprite, Bounds.Position);
 
         }
 
@@ -47,7 +47,7 @@ namespace Prototype02
         {
             if (!isRescue)
             {
-                if (CollisionInfo.Other.ToString().Contains("PlayerEntity") && _game.rescuenum == 2)
+                if (CollisionInfo.Other.ToString().Contains("PlayerEntity") && _game.rescuenum >= 4)
                 {
                     isRescue = true;
                 }

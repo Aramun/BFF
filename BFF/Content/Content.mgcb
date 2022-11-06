@@ -19,30 +19,40 @@
 /processor:TiledMapTilesetProcessor
 /build:background_fix.tsx
 
-#begin Map.tmx
-/importer:TiledMapImporter
-/processor:TiledMapProcessor
-/build:Map.tmx
+#begin door_background.tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:door_background.tsx
 
-#begin Map_1.tmx
+#begin Map_Gameplay1.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor
-/build:Map_1.tmx
+/build:Map_Gameplay1.tmx
 
-#begin Map_2.tmx
+#begin Map_Gameplay2.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor
-/build:Map_2.tmx
+/build:Map_Gameplay2.tmx
 
-#begin Map_3.tmx
+#begin Map_Menu.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor
-/build:Map_3.tmx
+/build:Map_Menu.tmx
 
-#begin Map_4.tmx
+#begin Map_Tutorial.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor
-/build:Map_4.tmx
+/build:Map_Tutorial.tmx
+
+#begin menu.tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:menu.tsx
+
+#begin mission tile sheet_2.tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:mission tile sheet_2.tsx
 
 #begin platfom up fix.tsx
 /importer:TiledMapTilesetImporter
@@ -53,6 +63,28 @@
 /importer:TiledMapTilesetImporter
 /processor:TiledMapTilesetProcessor
 /build:platform fix.tsx
+
+#begin Platform_blank.tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:Platform_blank.tsx
+
+#begin platform_trap_fix.tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:platform_trap_fix.tsx
+
+#begin Resources/Axe_icon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/Axe_icon.png
 
 #begin Resources/background_fix.png
 /importer:TextureImporter
@@ -65,6 +97,96 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Resources/background_fix.png
+
+#begin Resources/break_door.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/break_door.mp3
+
+#begin Resources/broken sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/broken sheet.png
+
+#begin Resources/Button_F(240).png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/Button_F(240).png
+
+#begin Resources/button_pressed.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/button_pressed.mp3
+
+#begin Resources/Chr .png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/Chr .png
+
+#begin Resources/clear_door_asset.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/clear_door_asset.png
+
+#begin Resources/door_opening.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/door_opening.mp3
+
+#begin Resources/door_sprite_sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/door_sprite_sheet.png
+
+#begin Resources/Ext_icon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/Ext_icon.png
 
 #begin Resources/fire pillar Sprite sheet.png
 /importer:TextureImporter
@@ -90,6 +212,18 @@
 /processorParam:TextureFormat=Color
 /build:Resources/fire Sprite sheet.png
 
+#begin Resources/fire_ext.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/fire_ext.mp3
+
+#begin Resources/fire-1.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/fire-1.mp3
+
 #begin Resources/goal sprite sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -102,6 +236,96 @@
 /processorParam:TextureFormat=Color
 /build:Resources/goal sprite sheet.png
 
+#begin Resources/health status sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/health status sheet.png
+
+#begin Resources/hit_fire.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/hit_fire.mp3
+
+#begin Resources/hit_stone.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/hit_stone.mp3
+
+#begin Resources/immortal icon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/immortal icon.png
+
+#begin Resources/Item Sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/Item Sheet.png
+
+#begin Resources/jump.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/jump.mp3
+
+#begin Resources/level_win.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/level_win.mp3
+
+#begin Resources/menu.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/menu.png
+
+#begin Resources/MenuSong.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/MenuSong.mp3
+
+#begin Resources/mission tile sheet_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/mission tile sheet_2.png
+
 #begin Resources/NPC sprite sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -113,6 +337,36 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Resources/NPC sprite sheet.png
+
+#begin Resources/obj_falling.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/obj_falling.mp3
+
+#begin Resources/Oxygen sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/Oxygen sheet.png
+
+#begin Resources/pick_up_item.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/pick_up_item.mp3
+
+#begin Resources/pick_up_npc.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/pick_up_npc.mp3
 
 #begin Resources/platfom up fix.png
 /importer:TextureImporter
@@ -210,6 +464,30 @@
 /processorParam:TextureFormat=Color
 /build:Resources/Sky 3(240).png
 
+#begin Resources/smoke 1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/smoke 1.png
+
+#begin Resources/smoke 2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Resources/smoke 2.png
+
 #begin Resources/Sprite Sheet Char.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -221,4 +499,54 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Resources/Sprite Sheet Char.png
+
+#begin Resources/you_died.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Resources/you_died.mp3
+
+#begin Road (240).tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:Road (240).tsx
+
+#begin Sky 1(240).tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:Sky 1(240).tsx
+
+#begin Sky 2(240).tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:Sky 2(240).tsx
+
+#begin Sky 3(240).tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:Sky 3(240).tsx
+
+#begin smoke 1.tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:smoke 1.tsx
+
+#begin smoke 2.tsx
+/importer:TiledMapTilesetImporter
+/processor:TiledMapTilesetProcessor
+/build:smoke 2.tsx
+
+#begin TestTimemerFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:TestTimemerFont.spritefont
+
+#begin Textforgame.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Textforgame.spritefont
 

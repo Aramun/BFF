@@ -10,7 +10,7 @@ using MonoGame.Extended.Collisions;
 using MonoGame.Extended.Sprites;
 using Prototype02;
 
-namespace BFF
+namespace FireRescue
 {
     public class FireEntity4:IEntity
     {
@@ -40,7 +40,7 @@ namespace BFF
         public virtual void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
+            //spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
             spriteBatch.Draw(_FireSprite, Bounds.Position);
 
         }

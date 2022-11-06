@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="2400" tileheight="1200" infinite="0" nextlayerid="4" nextobjectid="3">
+ <tileset firstgid="1" source="mission tile sheet_2.tsx"/>
+ <tileset firstgid="81" source="menu.tsx"/>
+ <layer id="1" name="menu" width="1" height="1">
+  <data encoding="csv">
+81
+</data>
+ </layer>
+</map>

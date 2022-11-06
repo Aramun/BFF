@@ -21,10 +21,10 @@ namespace Prototype02
         int Rescue;
         bool allRescue;
 
-        public NpcEntity(Game1 game, RectangleF rectangleF, AnimatedSprite Npcsprite)
+        public NpcEntity(Game1 game, CircleF circleF, AnimatedSprite Npcsprite)
         {
             _game = game;
-            Bounds = rectangleF;
+            Bounds = circleF;
             animation = "npc1";
             _NpcSprite = Npcsprite;
             isRescue = false;
@@ -45,7 +45,7 @@ namespace Prototype02
         {
             if (isRescue == false)
             {
-                spriteBatch.DrawCircle((RectangleF)Bounds, 8, Color.Red, 3);
+               // spriteBatch.DrawCircle((CircleF)Bounds, 8, Color.Red, 3f);
                 spriteBatch.Draw(_NpcSprite, Bounds.Position);
             }
 
