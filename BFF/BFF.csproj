@@ -11,6 +11,7 @@
     <Win32Resource />
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>Fire Rescue</AssemblyName>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
